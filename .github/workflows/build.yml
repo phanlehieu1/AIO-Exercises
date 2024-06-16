@@ -1,24 +1,32 @@
-name: Build
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    types: [opened, synchronize, reopened]
+name: CI
+
+on: [push, pull_request]
+
 jobs:
-  sonarcloud:
-    name: SonarCloud
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '20'
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    - name: Checkout code
+      uses: actions/checkout@v3  # Cập nhật phiên bản mới nhất
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3  # Cập nhật phiên bản mới nhất
+      with:
+        node-version: 20  # Thiết lập phiên bản Node.js là 20
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests
+      run: npm test
+
+    - name: Run SonarCloud
+      uses: SonarSource/sonarcloud-github-action@master
+      with:
+        projectBaseDir: ./src
+        args: >
+          -Dsonar.projectKey=my_project_key
+          -Dsonar.organization=my_organization
+          -Dsonar.host.url=https://sonarcloud.io
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
