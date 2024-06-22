@@ -29,5 +29,6 @@ def word_count(file_path):
     return word_count_dict
 
 
-result = word_count(output)
-print(result)
+if __name__ == "__main__":
+    result = word_count(output)
+    print(result)

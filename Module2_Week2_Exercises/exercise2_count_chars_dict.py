@@ -8,8 +8,9 @@ def character_count(word):
     return char_count
 
 
-word1 = "Happiness"
-word2 = "smiles"
+if __name__ == "__main__":
+    word1 = "Happiness"
+    word2 = "smiles"
 
-print(character_count(word1))
-print(character_count(word2))
+    print(character_count(word1))
+    print(character_count(word2))
