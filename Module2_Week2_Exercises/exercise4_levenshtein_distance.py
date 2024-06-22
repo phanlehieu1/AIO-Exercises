@@ -19,7 +19,8 @@ def levenshtein_distance(source, target):
     return D[m][n]
 
 
-source = "kitten"
-target = "sitting"
-distance = levenshtein_distance(source, target)
-print(distance)
+if __name__ == "__main__":
+    source = "kitten"
+    target = "sitting"
+    distance = levenshtein_distance(source, target)
+    print(distance)

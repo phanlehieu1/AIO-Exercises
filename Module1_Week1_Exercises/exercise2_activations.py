@@ -29,7 +29,7 @@ def exercise2():
 
     x = float(x)
 
-    act_func = input('Input activation Function ( sigmoid | relu | elu ): ')
+    act_func = input('Input activation function ( sigmoid | relu | elu ): ')
     if act_func not in ['sigmoid', 'relu', 'elu']:
         print(f'{act_func} is not supported')
         return None
