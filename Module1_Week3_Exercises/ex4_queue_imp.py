@@ -32,24 +32,7 @@ class MyQueue:
 
 if __name__ == "__main__":
     queue1 = MyQueue(capacity=5)
-
     queue1.enqueue(1)
+    assert queue1.is_full() == False
     queue1.enqueue(2)
-
-    print(queue1.is_full())
-    # Output: False
-
     print(queue1.front())
-    # Output: 1
-
-    print(queue1.dequeue())
-    # Output: 1
-
-    print(queue1.front())
-    # Output: 2
-
-    print(queue1.dequeue())
-    # Output: 2
-
-    print(queue1.is_empty())
-    # Output: True
