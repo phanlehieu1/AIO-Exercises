@@ -31,26 +31,31 @@ class MyStack:
 
 
 if __name__ == "__main__":
+    # stack1 = MyStack(capacity=5)
+
+    # stack1.push(1)
+
+    # stack1.push(2)
+
+    # print(stack1.is_full())
+    # # Output: False
+
+    # print(stack1.top())
+    # # Output: 2
+
+    # print(stack1.pop())
+    # # Output: 2
+
+    # print(stack1.top())
+    # # Output: 1
+
+    # print(stack1.pop())
+    # # Output: 1
+
+    # print(stack1.is_empty())
+    # # Output: True
     stack1 = MyStack(capacity=5)
-
     stack1.push(1)
-
+    assert stack1.is_full() == False
     stack1.push(2)
-
-    print(stack1.is_full())
-    # Output: False
-
     print(stack1.top())
-    # Output: 2
-
-    print(stack1.pop())
-    # Output: 2
-
-    print(stack1.top())
-    # Output: 1
-
-    print(stack1.pop())
-    # Output: 1
-
-    print(stack1.is_empty())
-    # Output: True
